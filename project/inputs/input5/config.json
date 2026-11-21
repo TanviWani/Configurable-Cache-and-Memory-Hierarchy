@@ -1,0 +1,10 @@
+{
+  "name": "l1_pref_1x4",
+  "BLOCKSIZE": 32,
+  "L1_SIZE": 1024,
+  "L1_ASSOC": 2,
+  "L2_SIZE": 0,
+  "L2_ASSOC": 0,
+  "PREF_N": 1,
+  "PREF_M": 4
+}

@@ -1,0 +1,112 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    1024
+L1_ASSOC:   2
+L2_SIZE:    8192
+L2_ASSOC:   4
+PREF_N:     0
+PREF_M:     0
+trace_file: trace3.txt
+
+===== L1 contents =====
+set 0: 12c384 2e13bc
+set 1: 67861 30c622
+set 2: 20915e bc2fa
+set 3: 25cc2e 22ba8c
+set 4: a573f 1a8a3e
+set 5: a3828 377188
+set 6: 732ab 1d144b
+set 7: 207267 60f9c
+set 8: ef39e 1ac906
+set 9: 2c8472 195f20
+set 10: 73d45 2b8995
+set 11: 24cdbf 1595a
+set 12: 1222c8 3632c3
+set 13: 1a5ae7 285bc
+set 14: e80db 13e9d2
+set 15: 5b392 21d728
+
+===== L2 contents =====
+set 0: 4b0e1 b84ef 79aa4 bec3d
+set 1: 824a9 5241c d3b5e 50fbb
+set 2: f568 82508 71e0b df328
+set 3: 8aea3 bec17 50fbb 50fba
+set 4: b01c7 6480b d0237 2c666
+set 5: 28e0a ddc62 5651f 32993
+set 6: df61b 768b3 48b5a ab4c4
+set 7: 183e7 247a3 8b714 516de
+set 8: b2bae 9b408 fcfe d8e2d
+set 9: 657c8 95bea 600f9 20b1
+set 10: 9293 97b30 640b6 609d2
+set 11: 5924 D 65b72 30cf5 50fbb
+set 12: 488b2 41804 5182f 962d7
+set 13: a16f b4088 50fbb 50fba
+set 14: 192ec b29da 50fbb D 50fba
+set 15: 875ca b102f 3bb70 98807
+set 16: 765b5 6e60f 789d1 50fbb
+set 17: 19e18 9f336 5d5d8 7dea9
+set 18: a3359 50fbb 50fba 993a4
+set 19: df0f5 27d3f b628e 3de73
+set 20: bba3a 4f229 50fbb 50fba D
+set 21: c3d 99f3 8561d d9e07
+set 22: a9d2c 786d1 93a93 5be4d
+set 23: ce9f0 3f121 7fea0 6e08b
+set 24: 64df9 6e1ee 25e77 d8cf5
+set 25: c3c4d 27338 c9c0b 1c71b
+set 26: 1cf51 ae265 16c40 97031
+set 27: 68612 d3db 50fbb 50fba
+set 28: 981a0 a1c9c 1a20c 24fef
+set 29: 99963 32a14 5a6d5 50fbb D
+set 30: 3866e c0c1c d4f7f 50fbb D
+set 31: 3a06b b116 596c0 a9bea
+set 32: 85095 317ab 7dee5 3fe9c
+set 33: c3188 84218 373a5 6f9d1
+set 34: 82457 2f0be 37aba 7db82
+set 35: 9730b cd2ba b9ab d33ce
+set 36: 6a28f a4818 D 50fbb 50fba
+set 37: aa1e1 4b96f 6942a D dfa10
+set 38: 4af22 ceb1a 4e9ac b3378
+set 39: 52b85 241fc 6f1ed 33e9d
+set 40: 3bce7 6b241 71439 94a07
+set 41: b211c 69eb2 c0a7f b5128
+set 42: 3549c 916a2 5b16c 50fbb
+set 43: 5656 90a78 b3946 50fbb
+set 44: c0348 4642c 88a9b 67d8c
+set 45: 7f994 5e7f3 50fbb 50fba
+set 46: 4fa74 5dd12 99da3 7c33e
+set 47: 16ce4 cfc55 28701 87358
+set 48: afc2e 48a13 50fbb 50fba
+set 49: 9f9ee 48625 70052 ef74
+set 50: 7962c 298 2d010 93889
+set 51: 873e7 6af 8d7c7 50fbb
+set 52: 295cf b1d14 7757a 50fbb
+set 53: 86af 1d2d4 85317 d6253
+set 54: 1ccaa 74512 9788a 13277
+set 55: 81c99 275de b86fa bd23e D
+set 56: 60632 D cb551 50fbb D 50fba D
+set 57: aded8 6059a 8fa53 50fbb
+set 58: 23671 D 7c762 86368 50fbb
+set 59: 9336f af00 D 2c05b 687c6
+set 60: d8cb0 6d400 a5e52 145c0
+set 61: 696b9 a396c D 10c7d 29fc4
+set 62: 3a036 b61de 1d1ce 84fd5
+set 63: 65335 50fba 50fb9 D 96f5a
+
+===== Measurements =====
+a. L1 reads:                                   7269
+b. L1 read misses:                             4116
+c. L1 writes:                                  4731
+d. L1 write misses:                            2834
+e. L1 miss rate:                               0.5792
+f. L1 writebacks:                              3158
+g. L1 prefetches:                              0
+h. L2 reads (demand):                          6950
+i. L2 read misses (demand):                    6177
+j. L2 reads (prefetch):                        0
+k. L2 read misses (prefetch):                  0
+l. L2 writes:                                  3158
+m. L2 write misses:                            0
+n. L2 miss rate:                               0.8888
+o. L2 writebacks:                              2881
+p. L2 prefetches:                              0
+q. memory traffic:                             9058

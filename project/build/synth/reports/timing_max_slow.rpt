@@ -1,0 +1,70 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'dut' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : dut
+Version: Y-2026.03
+Date   : Sat Nov 21 01:21:04 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: g_l2.u_l2/idx_q_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: g_l2.u_l2/tmem_reg[0][2][0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  g_l2.u_l2/idx_q_reg[1]/CK (DFF_X2)                    0.0000 #   0.0000 r
+  g_l2.u_l2/idx_q_reg[1]/Q (DFF_X2)                     0.5753     0.5753 r
+  U9688/ZN (AND2_X1)                                    0.2227     0.7980 r
+  U9078/ZN (AND2_X4)                                    0.5071     1.3051 r
+  U9426/Z (BUF_X4)                                      0.7192     2.0243 r
+  U13095/ZN (AOI221_X2)                                 0.2758     2.3001 f
+  U13090/ZN (AND2_X1)                                   0.2179     2.5180 f
+  U13089/ZN (OAI22_X2)                                  0.2990     2.8170 r
+  U13088/ZN (AOI221_X2)                                 0.1635     2.9805 f
+  U13087/ZN (NAND2_X2)                                  0.2738     3.2543 r
+  U17705/Z (XOR2_X2)                                    0.3644     3.6187 r
+  U17708/ZN (NOR3_X2)                                   0.0868     3.7055 f
+  U17709/ZN (NAND4_X2)                                  0.2672     3.9727 r
+  U17716/ZN (NOR4_X2)                                   0.0953     4.0679 f
+  U17732/ZN (NAND2_X2)                                  0.1374     4.2054 r
+  U9279/ZN (AND2_X1)                                    0.2086     4.4140 r
+  U17766/ZN (NAND3_X2)                                  0.1140     4.5280 f
+  U9400/ZN (OAI211_X2)                                  1.2663     5.7943 r
+  U9355/ZN (INV_X4)                                     0.0084     5.8027 f
+  U9298/ZN (INV_X4)                                     0.5312     6.3339 r
+  U29005/ZN (NAND2_X2)                                  0.1316     6.4654 f
+  U9191/ZN (INV_X4)                                     0.4240     6.8894 r
+  U29095/Z (MUX2_X2)                                    0.8124     7.7018 f
+  U29096/ZN (INV_X4)                                    0.0764     7.7782 r
+  g_l2.u_l2/tmem_reg[0][2][0]/D (DFF_X1)                0.0000     7.7782 r
+  data arrival time                                                7.7782
+
+  clock clk (rise edge)                                 8.0000     8.0000
+  clock network delay (ideal)                           0.0000     8.0000
+  clock uncertainty                                    -0.0500     7.9500
+  g_l2.u_l2/tmem_reg[0][2][0]/CK (DFF_X1)               0.0000     7.9500 r
+  library setup time                                   -0.1670     7.7830
+  data required time                                               7.7830
+  --------------------------------------------------------------------------
+  data required time                                               7.7830
+  data arrival time                                               -7.7782
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0048
+
+
+1

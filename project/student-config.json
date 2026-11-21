@@ -1,0 +1,14 @@
+{
+  "tests": {
+    "start": 0,
+    "end": 14
+  },
+  "compress": {
+    "include_globs": [
+      "srcs/rtl/**/*.v",
+      "srcs/rtl/**/*.sv",
+      "build/synth/reports/**/*.rpt",
+      "CMakePresets.json"
+    ]
+  }
+}

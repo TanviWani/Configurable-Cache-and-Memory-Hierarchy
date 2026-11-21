@@ -1,0 +1,43 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    128
+L1_ASSOC:   1
+L2_SIZE:    256
+L2_ASSOC:   2
+PREF_N:     1
+PREF_M:     1
+trace_file: trace14.txt
+
+===== L1 contents =====
+set 0: 48fd16 D
+set 1: 2f8eee
+set 2: 228374 D
+set 3: 2f8eed
+
+===== L2 contents =====
+set 0: 48fd16 228374
+set 1: 2f8eee 2f8eed
+set 2: 228374 228373
+set 3: 2f8eed 2f8eec
+
+===== Stream Buffer(s) contents =====
+ 8a0dd3
+
+===== Measurements =====
+a. L1 reads:                                   7803
+b. L1 read misses:                             5577
+c. L1 writes:                                  4197
+d. L1 write misses:                            3217
+e. L1 miss rate:                               0.7328
+f. L1 writebacks:                              3375
+g. L1 prefetches:                              0
+h. L2 reads (demand):                          8794
+i. L2 read misses (demand):                    6381
+j. L2 reads (prefetch):                        0
+k. L2 read misses (prefetch):                  0
+l. L2 writes:                                  3375
+m. L2 write misses:                            0
+n. L2 miss rate:                               0.7256
+o. L2 writebacks:                              3138
+p. L2 prefetches:                              8136
+q. memory traffic:                             17655

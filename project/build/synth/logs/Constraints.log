@@ -1,0 +1,445 @@
+#---------------------------------------------------------
+# Our first Optimization 'compile' is intended to      
+# produce a design that will meet hold-time            
+# under worst-case conditions:                         
+#    - slowest process corner                        
+#    - highest operating temperature and lowest Vcc  
+#    - expected worst case clock skew                
+#---------------------------------------------------------
+#---------------------------------------------------------
+# Set the current design to the top level instance name 
+# to make sure that you are working on the right design
+# at the time of constraint setting and compilation
+#---------------------------------------------------------
+##################################################
+# Revision History: 01/27/2010, by Chanyoun Won
+#                   01/19/2011, by Won Ha Choi
+#                   01/21/2011, by Zhuo Yan
+##################################################
+#  current_design $modname
+current_design $modname
+Current design is 'dut'.
+#---------------------------------------------------------
+# Set the synthetic library variable to enable use of 
+# desigware blocks
+#---------------------------------------------------------
+set synthetic_library [list dw_foundation.sldb]
+#---------------------------------------------------------
+# Specify the worst case (slowest) libraries and       
+# slowest temperature/Vcc conditions                   
+# This would involve setting up the slow library as the 
+# target and setting the link library to the conctenation
+# of the target and the synthetic library
+#---------------------------------------------------------
+set target_library NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+set link_library   [concat  $target_library $synthetic_library]
+set_sram_corner SS_0p9V_100C
+#---------------------------------------------------------
+# Specify a 5000ps clock period with 50% duty cycle     
+# and a skew of 50ps                                 
+#---------------------------------------------------------
+#set CLK_PER  5
+set CLK_SKEW 0.05
+create_clock -name $clkname -period $CLK_PER -waveform "0 [expr $CLK_PER / 2]" $clkname
+set_clock_uncertainty $CLK_SKEW $clkname
+#---------------------------------------------------------
+# Now set up the 'CONSTRAINTS' on the design:          
+# 1.  How much of the clock period is lost in the      
+#     modules connected to it                          
+# 2.  What type of cells are driving the inputs        
+# 3.  What type of cells and how many (fanout) must it 
+#     be able to drive                                 
+#---------------------------------------------------------
+# Following parameters have been modified based on Nangate 45nm library (slow conditional):
+# DFF_CKQ, IP_DELAY, DFF_SETUP, OP_DELAY, WIRE_LOAD_EST
+# These values are based on simulation. Credited to: Christopher Mineo
+#---------------------------------------------------------
+# ASSUME being driven by a slowest D-flip-flop         
+# The DFF cell has a clock-Q delay of 638 ps          
+# EX: 50um M3 has R of 178.57 Ohms and C of 12.5585fF. 0.69RC = 1.55ps, and wire load
+# of 50um M3 is 13fF. Therefore, roughly 20ps wire delay is assumed.                
+# NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
+#---------------------------------------------------------
+#
+set DFF_CKQ 0.638
+set IP_DELAY [expr 0.02 + $DFF_CKQ]
+set_input_delay $IP_DELAY -clock $clkname [remove_from_collection [all_inputs] $clkname]
+#---------------------------------------------------------
+# ASSUME this module is driving a D-flip-flip          
+# The DFF cell has a set-up time of 546 ps             
+# Same wire delay as mentioned above           
+# NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
+#---------------------------------------------------------
+set DFF_SETUP 0.546
+set OP_DELAY [expr 0.02 + $DFF_SETUP]
+set_output_delay $OP_DELAY -clock $clkname [all_outputs]
+#---------------------------------------------------------  
+# ASSUME being driven by a D-flip-flop                 
+#---------------------------------------------------------
+set DR_CELL_NAME DFFR_X1
+set DR_CELL_PIN  Q
+set_driving_cell -lib_cell "$DR_CELL_NAME" -pin "$DR_CELL_PIN" [remove_from_collection [all_inputs] $clkname]
+Warning: Design rule attributes from the driving cell will be set on the port 'reset_n'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_valid'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_wr'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[31]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[30]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[29]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[28]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[27]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[26]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[25]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[24]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[23]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[22]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[21]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[20]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[19]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[18]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[17]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[16]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[15]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[14]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[13]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[12]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[11]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[10]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[9]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[8]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'req_addr[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_en'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_l2'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_set[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_pos[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_pos[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dump_sb[0]'. (UID-401)
+#---------------------------------------------------------
+# ASSUME the worst case output load is                 
+# 4 D-flip-flop (D-inputs) and                         
+# 0.013 units of wiring capacitance                     
+#---------------------------------------------------------
+set PORT_LOAD_CELL  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm/DFFR_X1/D
+set WIRE_LOAD_EST   0.013
+set FANOUT          4
+set PORT_LOAD [expr $WIRE_LOAD_EST + $FANOUT * [load_of $PORT_LOAD_CELL]]
+set_load $PORT_LOAD [all_outputs]
+#---------------------------------------------------------
+# Now set the GOALS for the compile                    
+# In most cases you want minimum area, so set the      
+# goal for maximum area to be 0                        
+#---------------------------------------------------------
+set_max_area 0
+#---------------------------------------------------------
+# This command prevents feedthroughs from input to output and avoids assign statements                 
+#--------------------------------------------------------- 
+set_fix_multiple_port_nets -all -buffer_constants [get_designs]
+#------------------------------------------------------
+# For logic reduction, I want to make one flat design    
+#                                                      
+#------------------------------------------------------
+ungroup -flatten -all
+Information: Updating graph... (UID-83)
+Warning: Design 'dut' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+#---------------------------------------------------------
+# check the design before optimization  
+#---------------------------------------------------------
+#---------------------------------------------------------
+# check_design checks for consistency of design and issues
+# warnings and errors. An error would imply the design is 
+# not compilable. See > man check_design for more information.
+#---------------------------------------------------------
+check_design
+ 
+****************************************
+check_design summary:
+Version:     Y-2026.03
+Date:        Sat Nov 21 01:20:17 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     95
+    Unconnected ports (LINT-28)                                     5
+    Shorted outputs (LINT-31)                                      44
+    Constant outputs (LINT-52)                                     46
+
+Cells                                                              11
+    Cells do not drive (LINT-1)                                    11
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'dut', cell 'u_l1/C5229' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5227' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5223' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5220' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5219' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29714' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29709' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29707' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29703' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29700' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29699' does not drive any nets. (LINT-1)
+Warning: In design 'dut', net '*Logic1*' driven by pin 'U1/**logic_1**' has no loads. (LINT-2)
+Warning: In design 'dut', port 'req_addr[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[27]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[28]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[29]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[30]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[31]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[23]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[24]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[25]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[26]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[27]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[28]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[29]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[30]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[30]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[29]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[28]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[27]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[26]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[25]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[24]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[23]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[22]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[21]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[20]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[19]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[18]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[17]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[16]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[15]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[14]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[13]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[12]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[11]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[10]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[9]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[8]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[7]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[6]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[5]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[4]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[3]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[2]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[1]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[0]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[22]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[21]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[20]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[19]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[18]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[17]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[16]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[15]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[14]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[13]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[12]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[11]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[10]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[9]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[8]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[4]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[0]' is connected directly to 'logic 0'. (LINT-52)
+#---------------------------------------------------------
+# link performs check for presence of the design components 
+# instantiated within the design. It makes sure that all the 
+# components (either library unit or other designs within the
+# heirarchy) are present in the search path and connects all 
+# of the disparate components logically to the present design
+#---------------------------------------------------------
+link 
+
+  Linking design 'dut'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm (library)
+                              /mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+  dw_foundation.sldb (library)
+                              /mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/dw_foundation.sldb
+
+Information: Summary of messages issued during linking: (LINK-1806)
+No messages were issued during linking.
+#---------------------------------------------------------
+# check_design checks for consistency of design and issues
+# warnings and errors. An error would imply the design is 
+# not compilable. See > man check_design for more information.
+#---------------------------------------------------------
+check_design
+ 
+****************************************
+check_design summary:
+Version:     Y-2026.03
+Date:        Sat Nov 21 01:20:17 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     95
+    Unconnected ports (LINT-28)                                     5
+    Shorted outputs (LINT-31)                                      44
+    Constant outputs (LINT-52)                                     46
+
+Cells                                                              11
+    Cells do not drive (LINT-1)                                    11
+
+Nets                                                                1
+    Unloaded nets (LINT-2)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'dut', cell 'u_l1/C5229' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5227' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5223' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5220' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_l1/C5219' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29714' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29709' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29707' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29703' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29700' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'g_l2.u_l2/C29699' does not drive any nets. (LINT-1)
+Warning: In design 'dut', net '*Logic1*' driven by pin 'U1/**logic_1**' has no loads. (LINT-2)
+Warning: In design 'dut', port 'req_addr[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', port 'req_addr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[27]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[28]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[29]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[30]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_sb_base[31]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[23]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[24]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[25]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[26]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[27]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[28]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[29]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to output port 'dump_tag[30]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[30]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[29]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[28]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[27]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[26]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[25]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[24]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[23]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[22]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[21]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[20]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[19]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[18]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[17]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[16]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[15]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[14]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[13]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[12]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[11]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[10]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[9]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[8]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[7]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[6]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[5]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[4]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[3]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[2]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[1]'. (LINT-31)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to output port 'l1_pref[0]'. (LINT-31)
+Warning: In design 'dut', output port 'dump_tag[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_tag[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'dump_sb_base[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[22]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[21]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[20]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[19]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[18]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[17]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[16]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[15]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[14]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[13]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[12]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[11]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[10]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[9]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[8]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[7]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[6]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[4]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'dut', output port 'l1_pref[0]' is connected directly to 'logic 0'. (LINT-52)
+1

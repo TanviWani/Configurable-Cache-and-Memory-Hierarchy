@@ -1,0 +1,320 @@
+===== Simulator configuration =====
+BLOCKSIZE:  64
+L1_SIZE:    2048
+L1_ASSOC:   1
+L2_SIZE:    16384
+L2_ASSOC:   1
+PREF_N:     0
+PREF_M:     0
+trace_file: trace8.txt
+
+===== L1 contents =====
+set 0: 3f572 D
+set 1: 3f572 D
+set 2: 3f572 D
+set 3: 3f572 D
+set 4: 3f572 D
+set 5: 5508b
+set 6: ce850
+set 7: 3f572 D
+set 8: 3f572 D
+set 9: 3f572 D
+set 10: 402d9
+set 11: 82df
+set 12: 259cd D
+set 13: de4bf
+set 14: 6afa8
+set 15: 25886
+set 16: 259cd D
+set 17: 259cd D
+set 18: 259cd D
+set 19: 259cd D
+set 20: 259cd D
+set 21: 259cd D
+set 22: 259cd D
+set 23: b1add
+set 24: 259cd D
+set 25: 259cd D
+set 26: 29d84
+set 27: 259cd D
+set 28: 259cd D
+set 29: bb903
+set 30: 259cd D
+set 31: 259cd D
+
+===== L2 contents =====
+set 0: 6272
+set 1: 9a49
+set 2: 9a49
+set 3: 9a49
+set 4: 9a49
+set 5: 9a49
+set 6: 19d0a
+set 7: 9a49
+set 8: 9a49
+set 9: 9a49
+set 10: 90dd D
+set 11: 13a9f
+set 12: 90dd D
+set 13: 90dd D
+set 14: d5f5
+set 15: 9a49
+set 16: 9a49
+set 17: 9a49
+set 18: 9a49 D
+set 19: 9a49
+set 20: 9a49
+set 21: 9a49
+set 22: 9a49
+set 23: 9a49
+set 24: 45aa
+set 25: 45aa
+set 26: 45aa
+set 27: 45aa
+set 28: b409 D
+set 29: b409 D
+set 30: b409 D
+set 31: b409 D
+set 32: b409 D
+set 33: 5824 D
+set 34: 9a49
+set 35: 9a49
+set 36: 9a49
+set 37: 9a49
+set 38: 9a49
+set 39: 45aa
+set 40: 45aa
+set 41: 45aa
+set 42: 805b
+set 43: 45aa
+set 44: 45aa
+set 45: 45aa
+set 46: 45aa
+set 47: 21ae
+set 48: 45aa
+set 49: 7eae D
+set 50: 7eae D
+set 51: 7eae D
+set 52: 7eae D
+set 53: 7eae D
+set 54: 7eae D
+set 55: 7eae D
+set 56: 7eae D
+set 57: 7eae D
+set 58: 7eae D
+set 59: 7eae D
+set 60: 7eae D
+set 61: 7eae D
+set 62: 7eae D
+set 63: 7eae D
+set 64: 7eae
+set 65: 7eae
+set 66: 7eae
+set 67: 7eae
+set 68: 7eae
+set 69: 7eae D
+set 70: 7eae D
+set 71: 7eae
+set 72: 7eae
+set 73: 7eae
+set 74: 45aa
+set 75: 45aa
+set 76: 45aa
+set 77: 45aa D
+set 78: 45aa D
+set 79: 45aa
+set 80: 45aa
+set 81: 45aa
+set 82: 45aa
+set 83: 45aa
+set 84: 45aa
+set 85: 45aa
+set 86: 45aa D
+set 87: 45aa
+set 88: 45aa
+set 89: 45aa
+set 90: 45aa
+set 91: 45aa
+set 92: 45aa
+set 93: 45aa
+set 94: 45aa
+set 95: 45aa
+set 96: 45aa
+set 97: 45aa
+set 98: 45aa
+set 99: 45aa
+set 100: 45aa
+set 101: aa11
+set 102: 45aa
+set 103: 45aa
+set 104: 45aa
+set 105: 45aa
+set 106: 45aa
+set 107: 45aa
+set 108: 45aa
+set 109: 45aa
+set 110: 45aa
+set 111: 45aa
+set 112: 9a49
+set 113: 9a49
+set 114: 9a49
+set 115: 9a49
+set 116: 9a49
+set 117: 9a49
+set 118: 9a49
+set 119: 9a49
+set 120: 7558
+set 121: 7558
+set 122: 7558
+set 123: 7558
+set 124: 7558
+set 125: 17720
+set 126: 7558
+set 127: 7558
+set 128: 7558
+set 129: 7558
+set 130: 7558
+set 131: 7558
+set 132: 7558
+set 133: 7558
+set 134: 7558
+set 135: 7558
+set 136: 7558
+set 137: 7558
+set 138: 7558
+set 139: 7558
+set 140: 7558
+set 141: 7558
+set 142: 7558
+set 143: 7558
+set 144: 7558
+set 145: 7558
+set 146: 7558
+set 147: 7558
+set 148: 7558
+set 149: 7558
+set 150: 7558
+set 151: 7558
+set 152: 7558
+set 153: 7558
+set 154: 53b0
+set 155: 7558
+set 156: 7558 D
+set 157: 7558
+set 158: 7558
+set 159: 7558
+set 160: 7558
+set 161: 7558
+set 162: 7558
+set 163: 7558
+set 164: 7558
+set 165: 7558
+set 166: 7558
+set 167: 7558
+set 168: 7558
+set 169: 7558
+set 170: 4b39 D
+set 171: 4b39 D
+set 172: 4b39
+set 173: 4b39 D
+set 174: 4b39 D
+set 175: 4b39 D
+set 176: 4b39
+set 177: 4b39
+set 178: 4b39
+set 179: 4b39
+set 180: 4b39
+set 181: 4b39
+set 182: 4b39
+set 183: 1635b
+set 184: 4b39
+set 185: 4b39
+set 186: 4b39 D
+set 187: 4b39
+set 188: 4b39
+set 189: 4b39 D
+set 190: 4b39
+set 191: 4b39
+set 192: 776a
+set 193: 776a D
+set 194: 776a
+set 195: 776a
+set 196: 776a
+set 197: 776a
+set 198: 9610
+set 199: 9610
+set 200: 9610
+set 201: 9610
+set 202: 9610
+set 203: 6587
+set 204: 9610
+set 205: 9610
+set 206: 9610
+set 207: 4b10
+set 208: 9610
+set 209: 9610
+set 210: 9610 D
+set 211: 9610 D
+set 212: 9610
+set 213: 9610
+set 214: 9610
+set 215: 9610
+set 216: 9610
+set 217: 9610
+set 218: 9610
+set 219: 9610
+set 220: 9610
+set 221: 9610
+set 222: 9610
+set 223: be87 D
+set 224: be87 D
+set 225: be87 D
+set 226: be87 D
+set 227: be87 D
+set 228: 9610
+set 229: 9610
+set 230: 9610
+set 231: 9610
+set 232: 9610
+set 233: 9610
+set 234: 9610
+set 235: 105b
+set 236: 9610
+set 237: 1bc97
+set 238: 6271
+set 239: 6271
+set 240: 6271
+set 241: 6271
+set 242: 6271
+set 243: 6271
+set 244: 6271
+set 245: 6271
+set 246: 6271
+set 247: 6271
+set 248: 6271
+set 249: 6271
+set 250: 6271
+set 251: 6271
+set 252: 6271
+set 253: 6271
+set 254: 6271
+set 255: 6271
+
+===== Measurements =====
+a. L1 reads:                                    9045
+b. L1 read misses:                              5771
+c. L1 writes:                                   2955
+d. L1 write misses:                             1665
+e. L1 miss rate:                                0.6197
+f. L1 writebacks:                               1849
+g. L1 prefetches:                               0
+h. L2 reads (demand):                           7436
+i. L2 read misses (demand):                     6226
+j. L2 reads (prefetch):                         0
+k. L2 read misses (prefetch):                   0
+l. L2 writes:                                   1849
+m. L2 write misses:                             0
+n. L2 miss rate:                                0.8373
+o. L2 writebacks:                               1342
+p. L2 prefetches:                               0
+q. memory traffic:                              7568

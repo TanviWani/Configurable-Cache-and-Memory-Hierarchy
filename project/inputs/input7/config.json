@@ -1,0 +1,10 @@
+{
+  "name": "l1_l2_pref_3x10",
+  "BLOCKSIZE": 32,
+  "L1_SIZE": 1024,
+  "L1_ASSOC": 2,
+  "L2_SIZE": 16384,
+  "L2_ASSOC": 8,
+  "PREF_N": 3,
+  "PREF_M": 10
+}

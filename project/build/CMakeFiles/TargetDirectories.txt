@@ -1,0 +1,10 @@
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/compress.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/ref.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/vlog-dut.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/vsim-dut-c.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/vsim-dut.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/vsim-dut-bubble.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/synth.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/report.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/edit_cache.dir
+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,44 @@
+# rename as .synopsys_dc.setup 
+
+# Search Path variables  
+set path1 "/mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520"
+set search_path "$path1 $search_path";
+
+set search_path [concat  $search_path [list [format "%s%s"  $synopsys_root "/libraries/syn"]]]
+set search_path [concat  $search_path [list "." [format "%s%s"  $synopsys_root "/dw/sim_ver"]]]
+
+# Library Variables 
+set synthetic_library [list dw_foundation.sldb]
+set target_library NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+set link_library   [concat  $target_library $synthetic_library]
+
+set verilogout_no_tri "true"
+
+# CMake passes the SRAM_PATH configured in CMakePresets.json.
+# Keep macro file names and corner selection here, alongside library setup.
+proc set_sram_corner {corner} {
+  global link_library
+  if {![info exists ::env(SRAM_PATH)] || $::env(SRAM_PATH) eq ""} {
+    return
+  }
+  set libraries {}
+  foreach size {16 32 64 128 256} {
+    foreach ports {1rw 1r1w} {
+      set macro "sram_${size}x32_${ports}"
+      set library [file join $::env(SRAM_PATH) $macro "${macro}_${corner}.db"]
+      if {![file exists $library]} {
+        error "SRAM timing library missing: $library; check SRAM_PATH in CMakePresets.json"
+      }
+      lappend libraries $library
+    }
+  }
+  set link_library [concat [list *] $link_library $libraries]
+}
+if {[info exists ::env(SRAM_PATH)] && $::env(SRAM_PATH) ne ""} {
+  foreach size {32 256} {
+    foreach ports {1rw 1r1w} {
+      lappend search_path [file join $::env(SRAM_PATH) "sram_${size}x32_${ports}"]
+    }
+  }
+  set_sram_corner SS_0p9V_100C
+}

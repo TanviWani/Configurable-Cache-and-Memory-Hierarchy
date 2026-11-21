@@ -1,0 +1,169 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+Z2 !s12c _opt1
+R1
+Z3 !s12c _opt
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+R0
+R1
+R2
+R1
+R3
+R1
+!s11f vlog 2026.1 2026.01, Jan 25 2026
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z4 d/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut
+T_opt
+!i145 1
+!i144 0
+!s110 1795146208
+VT]ILS`?loTX`e04ziO=hO3
+Z5 04 2 4 work tb fast 0
+=1-d404e62ac451-6affc1de-9bacf-125d03
+R1
+Z6 !s12f OEM100
+Z7 !s12b OEM100
+Z8 !s124 OEM100
+Z9 !s135 nogc
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work -G T_PREF_M=16 -G T_L1_ASSOC=2 -G T_PREF_N=8 -G T_L2_ASSOC=4 -G T_BLOCKSIZE=32 -G T_L1_SIZE=512 -G T_L2_SIZE=4096 +acc
+Z10 tCvgOpt 0
+n@_opt
+Z11 OL;O;2026.1;84
+R4
+T_opt1
+!i145 1
+!i144 0
+!s110 1795146216
+VXlX=EIk<oO7`PAlV_@RUB1
+R5
+=1-d404e62ac451-6affc1e6-d8866-125e2b
+R1
+R6
+R7
+R8
+R9
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work -G T_PREF_M=3 -G T_L1_ASSOC=2 -G T_PREF_N=3 -G T_L2_ASSOC=0 -G T_BLOCKSIZE=16 -G T_L1_SIZE=1024 -G T_L2_SIZE=0 +acc
+R10
+n@_opt1
+R11
+R4
+T_opt2
+!i145 1
+!i144 0
+!s110 1795146225
+V;?OznldQc1jb9EaG18omC0
+R5
+=1-d404e62ac451-6affc1ef-1dfc6-125f0e
+R1
+R6
+R7
+R8
+R9
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work -G T_PREF_M=1 -G T_L1_ASSOC=1 -G T_PREF_N=1 -G T_L2_ASSOC=2 -G T_BLOCKSIZE=32 -G T_L1_SIZE=128 -G T_L2_SIZE=256 +acc
+R10
+n@_opt2
+R11
+vcache_level
+Z12 2/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv
+Z13 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z14 !s110 1795146104
+!i10b 1
+!s100 <L191F?5515_Ei=gR8fj40
+I>k3aPfAHII0cbGaYf14FP0
+S1
+R4
+Z15 w1795145959
+8/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv
+F/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv
+!i122 0
+L0 33 349
+Z16 VDg1SIo80bB@j0V0VzS_@n1
+Z17 OL;L;2026.1;84
+r1
+!s85 0
+31
+Z18 !s108 1795146103.000000
+Z19 !s107 /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv|
+Z20 !s90 -64|-sv|-work|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work|+define+CFG_BLOCKSIZE=32|+define+CFG_L1_SIZE=1024|+define+CFG_L1_ASSOC=2|+define+CFG_L2_SIZE=8192|+define+CFG_L2_ASSOC=4|+define+CFG_PREF_N=2|+define+CFG_PREF_M=4|+incdir+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl|+incdir+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv|/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv|
+!i113 0
+Z21 o-64 -sv -work /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z22 !s92 -64 -sv -work /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work +define+CFG_BLOCKSIZE=32 +define+CFG_L1_SIZE=1024 +define+CFG_L1_ASSOC=2 +define+CFG_L2_SIZE=8192 +define+CFG_L2_ASSOC=4 +define+CFG_PREF_N=2 +define+CFG_PREF_M=4 +incdir+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl +incdir+/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R10
+vdut
+R12
+R13
+R14
+!i10b 1
+!s100 JJAZ8PVPWL`AA;gMGnFQ`2
+I:nBn6VGgUPd=oneLIHoF92
+S1
+R4
+R15
+8/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv
+F/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv
+!i122 0
+L0 40 169
+R16
+R17
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R21
+R22
+R10
+vtb
+R12
+R13
+R14
+!i10b 1
+!s100 DndY=SVEB=@:V82IkXRPK0
+IFa_e=W5`<]Xj5mS1=OcjI0
+S1
+R4
+R15
+8/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv
+F/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv
+!i122 0
+L0 15 261
+R16
+R17
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R21
+R22
+R10

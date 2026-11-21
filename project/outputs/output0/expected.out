@@ -1,0 +1,94 @@
+===== Simulator configuration =====
+BLOCKSIZE:  16
+L1_SIZE:    1024
+L1_ASSOC:   1
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     0
+PREF_M:     0
+trace_file: trace0.txt
+
+===== L1 contents =====
+set 0: 83dbc D
+set 1: 83dbc D
+set 2: 83dbc D
+set 3: 83dbc D
+set 4: 90229
+set 5: 83dbc D
+set 6: 83dbc D
+set 7: 83dbc D
+set 8: 83dbc
+set 9: 83dbc D
+set 10: 90228 D
+set 11: 83dbc
+set 12: 90228 D
+set 13: 83dbc D
+set 14: 83dbc
+set 15: 90229 D
+set 16: 83dbc D
+set 17: 83dbc D
+set 18: 83dbc
+set 19: 83dbc D
+set 20: 62882
+set 21: 62882 D
+set 22: 62882 D
+set 23: 62882
+set 24: 90228
+set 25: 90228
+set 26: ba5f3 D
+set 27: ba5f3 D
+set 28: ba5f3 D
+set 29: ba5f3
+set 30: ba5f3 D
+set 31: ba5f3 D
+set 32: ba5f3 D
+set 33: ba5f3 D
+set 34: ba5f3 D
+set 35: ba5f3 D
+set 36: 90227 D
+set 37: ba5f3 D
+set 38: ba5f3 D
+set 39: ba5f3 D
+set 40: 90227 D
+set 41: ba5f3 D
+set 42: ba5f3 D
+set 43: 90227
+set 44: ba5f3 D
+set 45: ba5f3
+set 46: 47d4b
+set 47: 90228 D
+set 48: 47d4b D
+set 49: 90227 D
+set 50: 47d4b D
+set 51: 90227 D
+set 52: 90227 D
+set 53: 88b23
+set 54: 88b23
+set 55: 88b23
+set 56: 88b23
+set 57: 88b23
+set 58: 88b23
+set 59: 83dbb
+set 60: 83dbb D
+set 61: 83dbb D
+set 62: 83dbb D
+set 63: 83dbb
+
+===== Measurements =====
+a. L1 reads:                                    7717
+b. L1 read misses:                              5038
+c. L1 writes:                                   4283
+d. L1 write misses:                             1795
+e. L1 miss rate:                                0.5694
+f. L1 writebacks:                               2320
+g. L1 prefetches:                               0
+h. L2 reads (demand):                           0
+i. L2 read misses (demand):                     0
+j. L2 reads (prefetch):                         0
+k. L2 read misses (prefetch):                   0
+l. L2 writes:                                   0
+m. L2 write misses:                             0
+n. L2 miss rate:                                0.0000
+o. L2 writebacks:                               0
+p. L2 prefetches:                               0
+q. memory traffic:                              9153

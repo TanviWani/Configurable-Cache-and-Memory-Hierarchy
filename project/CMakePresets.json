@@ -1,0 +1,205 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 5
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "UNITY_ID": "tpwani2",
+        "DC_CLOCK_PER": "8.0",
+        "DUT_BLOCKSIZE": "32",
+        "DUT_L1_SIZE": "1024",
+        "DUT_L1_ASSOC": "2",
+        "DUT_L2_SIZE": "8192",
+        "DUT_L2_ASSOC": "4",
+        "DUT_PREF_N": "2",
+        "DUT_PREF_M": "4"
+      }
+    },
+    {
+      "name": "run",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "-1"
+      }
+    },
+    {
+      "name": "test0",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "0"
+      }
+    },
+    {
+      "name": "test1",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "1"
+      }
+    },
+    {
+      "name": "test2",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "2"
+      }
+    },
+    {
+      "name": "test3",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "3"
+      }
+    },
+    {
+      "name": "test4",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "4"
+      }
+    },
+    {
+      "name": "test5",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "5"
+      }
+    },
+    {
+      "name": "test6",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "6"
+      }
+    },
+    {
+      "name": "test7",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "7"
+      }
+    },
+    {
+      "name": "test8",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "8"
+      }
+    },
+    {
+      "name": "test9",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "9"
+      }
+    },
+    {
+      "name": "test10",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "10"
+      }
+    },
+    {
+      "name": "test11",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "11"
+      }
+    },
+    {
+      "name": "test12",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "12"
+      }
+    },
+    {
+      "name": "test13",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "13"
+      }
+    },
+    {
+      "name": "test14",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "14"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "run",
+      "configurePreset": "run"
+    },
+    {
+      "name": "test0",
+      "configurePreset": "test0"
+    },
+    {
+      "name": "test1",
+      "configurePreset": "test1"
+    },
+    {
+      "name": "test2",
+      "configurePreset": "test2"
+    },
+    {
+      "name": "test3",
+      "configurePreset": "test3"
+    },
+    {
+      "name": "test4",
+      "configurePreset": "test4"
+    },
+    {
+      "name": "test5",
+      "configurePreset": "test5"
+    },
+    {
+      "name": "test6",
+      "configurePreset": "test6"
+    },
+    {
+      "name": "test7",
+      "configurePreset": "test7"
+    },
+    {
+      "name": "test8",
+      "configurePreset": "test8"
+    },
+    {
+      "name": "test9",
+      "configurePreset": "test9"
+    },
+    {
+      "name": "test10",
+      "configurePreset": "test10"
+    },
+    {
+      "name": "test11",
+      "configurePreset": "test11"
+    },
+    {
+      "name": "test12",
+      "configurePreset": "test12"
+    },
+    {
+      "name": "test13",
+      "configurePreset": "test13"
+    },
+    {
+      "name": "test14",
+      "configurePreset": "test14"
+    }
+  ]
+}

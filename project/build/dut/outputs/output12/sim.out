@@ -1,0 +1,82 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    512
+L1_ASSOC:   2
+L2_SIZE:    4096
+L2_ASSOC:   4
+PREF_N:     8
+PREF_M:     16
+trace_file: trace12.txt
+
+===== L1 contents =====
+set 0: 185cd3 185cd2
+set 1: 2cb92b D 2ba95b
+set 2: 185cd3 185cd2
+set 3: 2ba95b 125a53
+set 4: 185cd3 2d3229
+set 5: 125a53 2a0db4
+set 6: 185cd2 2d3229
+set 7: 125a53 2cb92a
+
+===== L2 contents =====
+set 0: b4c8a 61734 b4c89 D 12391a D
+set 1: a836d b2e4a D aea56 49694
+set 2: b4c8a 61734 b4c89 12391a D
+set 3: a836d b2e4a 49694 D aea56
+set 4: b4c8a D 61734 b4c89 12391a D
+set 5: a836d b2e4a 49694 aea56
+set 6: b4c8a 61734 b4c89 12391a D
+set 7: b2e4a 49694 aea56 a836c
+set 8: b4c8a D 61734 b4c89 10fbd6 D
+set 9: b2e4a 49694 aea56 D a836c
+set 10: b4c8a D 61734 b4c89 10fbd6 D
+set 11: b2e4a aea56 49694 D a836c D
+set 12: b4c8a 61734 b4c89 10fbd6 D
+set 13: b2e4a aea56 49694 a836c
+set 14: 61734 D b4c8a b4c89 10fbd6 D
+set 15: b2e4a D aea56 D 49694 a836c
+set 16: 61734 b4c89 10fbd6 D 12391a D
+set 17: b2e4a aea56 49694 a836c D
+set 18: 61734 b4c89 10fbd6 D 12391a D
+set 19: b2e4a aea56 49694 a836c
+set 20: 61734 D b4c89 10fbd6 D 12391a D
+set 21: b2e4a aea56 49694 a836c
+set 22: 61734 b4c89 10fbd6 D 12391a D
+set 23: b2e4a aea56 D 49694 a836c
+set 24: 61734 b4c89 61733 D 10fbd6 D
+set 25: b2e4a aea56 49694 a836c D
+set 26: 61734 b4c89 61733 b4c88
+set 27: aea56 49694 a836c b2e49
+set 28: 61734 b4c89 61733 b4c88
+set 29: 49694 aea56 a836c D b2e49
+set 30: b4c89 61733 b4c88 13ac34
+set 31: 49694 aea56 a836c b2e49
+
+===== Stream Buffer(s) contents =====
+ c2e69d c2e69e c2e69f c2e6a0 c2e6a1 c2e6a2 c2e6a3 c2e6a4 c2e6a5 c2e6a6 c2e6a7 c2e6a8 c2e6a9 c2e6aa c2e6ab c2e6ac
+ 165c95a 165c95b 165c95c 165c95d 165c95e 165c95f 165c960 165c961 165c962 165c963 165c964 165c965 165c966 165c967 165c968 165c969
+ 92d2a0 92d2a1 92d2a2 92d2a3 92d2a4 92d2a5 92d2a6 92d2a7 92d2a8 92d2a9 92d2aa 92d2ab 92d2ac 92d2ad 92d2ae 92d2af
+ 15d4ae0 15d4ae1 15d4ae2 15d4ae3 15d4ae4 15d4ae5 15d4ae6 15d4ae7 15d4ae8 15d4ae9 15d4aea 15d4aeb 15d4aec 15d4aed 15d4aee 15d4aef
+ 1506da6 1506da7 1506da8 1506da9 1506daa 1506dab 1506dac 1506dad 1506dae 1506daf 1506db0 1506db1 1506db2 1506db3 1506db4 1506db5
+ 169914f 1699150 1699151 1699152 1699153 1699154 1699155 1699156 1699157 1699158 1699159 169915a 169915b 169915c 169915d 169915e
+ 2472347 2472348 2472349 247234a 247234b 247234c 247234d 247234e 247234f 2472350 2472351 2472352 2472353 2472354 2472355 2472356
+ 27586a6 27586a7 27586a8 27586a9 27586aa 27586ab 27586ac 27586ad 27586ae 27586af 27586b0 27586b1 27586b2 27586b3 27586b4 27586b5
+
+===== Measurements =====
+a. L1 reads:                                   8128
+b. L1 read misses:                             5192
+c. L1 writes:                                  3872
+d. L1 write misses:                            1753
+e. L1 miss rate:                               0.5787
+f. L1 writebacks:                              2095
+g. L1 prefetches:                              0
+h. L2 reads (demand):                          6945
+i. L2 read misses (demand):                    1976
+j. L2 reads (prefetch):                        0
+k. L2 read misses (prefetch):                  0
+l. L2 writes:                                  2095
+m. L2 write misses:                            0
+n. L2 miss rate:                               0.2845
+o. L2 writebacks:                              1944
+p. L2 prefetches:                              38662
+q. memory traffic:                             42582

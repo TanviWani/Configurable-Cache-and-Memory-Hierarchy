@@ -1,0 +1,67 @@
+===== Simulator configuration =====
+BLOCKSIZE:  16
+L1_SIZE:    1024
+L1_ASSOC:   2
+L2_SIZE:    0
+L2_ASSOC:   0
+PREF_N:     3
+PREF_M:     3
+trace_file: trace13.txt
+
+===== L1 contents =====
+set 0: b4fec 16a2dd
+set 1: 16a2dd 96631
+set 2: 16a2dd 1606d0
+set 3: 16a2dd 96631
+set 4: 16a2dd 96631
+set 5: 96631 1606d0
+set 6: 96631 1606d0
+set 7: 96631 1606d0
+set 8: 96631 1606d0
+set 9: 1606d0 a3095
+set 10: 1606d0 a3095
+set 11: 1606d0 a3095
+set 12: 1606d0 a3095
+set 13: 1606d0 a3095
+set 14: a3095 1606d0
+set 15: a3095 1606d0
+set 16: 1606d0 b537a
+set 17: 1606d0 b537a
+set 18: 1606d0 b537a
+set 19: 1606d0 b537a
+set 20: b537a b4feb
+set 21: b537a b4feb
+set 22: b537a b4feb
+set 23: b4feb 16a2dc
+set 24: b4feb 16a2dc
+set 25: b4feb 16a2dc
+set 26: b4feb 16a2dc
+set 27: b4feb D 16a2dc
+set 28: b4feb 16a2dc
+set 29: b4feb 16a2dc
+set 30: b4feb 16a2dc
+set 31: b4feb 16a2dc
+
+===== Stream Buffer(s) contents =====
+ 2c0da14 2c0da15 2c0da16
+ 169fd81 169fd82 169fd83
+ 14612b0 14612b1 14612b2
+
+===== Measurements =====
+a. L1 reads:                                   8760
+b. L1 read misses:                             3498
+c. L1 writes:                                  3240
+d. L1 write misses:                            877
+e. L1 miss rate:                               0.3646
+f. L1 writebacks:                              2834
+g. L1 prefetches:                              17837
+h. L2 reads (demand):                          0
+i. L2 read misses (demand):                    0
+j. L2 reads (prefetch):                        0
+k. L2 read misses (prefetch):                  0
+l. L2 writes:                                  0
+m. L2 write misses:                            0
+n. L2 miss rate:                               0.0000
+o. L2 writebacks:                              0
+p. L2 prefetches:                              0
+q. memory traffic:                             25046

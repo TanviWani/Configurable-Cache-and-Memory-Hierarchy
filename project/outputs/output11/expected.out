@@ -1,0 +1,84 @@
+===== Simulator configuration =====
+BLOCKSIZE:  128
+L1_SIZE:    4096
+L1_ASSOC:   2
+L2_SIZE:    16384
+L2_ASSOC:   4
+PREF_N:     2
+PREF_M:     5
+trace_file: trace11.txt
+
+===== L1 contents =====
+set 0: daa10 c1b21
+set 1: 3f59a 34bce
+set 2: c921b 20b88
+set 3: 8e797 3801
+set 4: d43a4 537b7
+set 5: 386a5 20f5c
+set 6: 5bee4 4f50d
+set 7: 8776e 2383b D
+set 8: 716ea 410fd D
+set 9: da018 D 30881
+set 10: 42bbe 2e731 D
+set 11: ba75c ba289
+set 12: 9c578 34549
+set 13: bd949 1014
+set 14: ab1ae 41bde D
+set 15: 81af4 D 74194
+
+===== L2 contents =====
+set 0: 6d508 22e13 3f7d2 2b5df
+set 1: 1facd 1a5e7 3e54b 2fea9
+set 2: 105c4 4c4c1 62cef 3d548
+set 3: 66181 3d97d 52dba 5f87e
+set 4: 6a1d2 3776 a434 56b69 D
+set 5: 107ae 3157f 66b87 309fb D
+set 6: 2df72 29764 1b694 33960
+set 7: 43bb7 8265 21ad3 13358
+set 8: 38b75 6684a 3f85b 5bfa3
+set 9: 6d00c 42bc 113ab D 5b2c6
+set 10: 215df 26ef4 48784 6980f
+set 11: 5d3ae 61f1a 3d0e5 D 575c1 D
+set 12: 4e2bc 6d936 D 650dc D 3d118
+set 13: 80a 6ba37 D 4a3da 12554
+set 14: 558d7 20def 5b891 4393f
+set 15: 40d7a 3a0ca 4ad5e 15819
+set 16: 60d90 47e6d 42de2 1fdf4
+set 17: 4082a 4d23f 65043 4a217
+set 18: 6490d 39d99 3dbfa D 474ff
+set 19: 473cb 1c00 6665 D 6d017
+set 20: 29bdb 598f4 49655 4fbc8
+set 21: 1c352 1ad47 46e05 31241
+set 22: 27a86 66530 5e3c9 258c0
+set 23: 11c1d a5bd 35940 510da
+set 24: 2087e 26254 dda2 4f44a
+set 25: 4dd27 D 18440 1403a 2c8fa
+set 26: 17398 28e0b 5b850 53e37
+set 27: 5d144 2c827 581cf 110b3
+set 28: 1a2a4 335c6 f8d4 1dba0
+set 29: 5eca4 3774b 44883 2956d
+set 30: 18277 226bc 45224 607ec
+set 31: 1d09a 29373 5da69 489e0
+
+===== Stream Buffer(s) contents =====
+ d43a45 d43a46 d43a47 d43a48 d43a49
+ 386a56 386a57 386a58 386a59 386a5a
+
+===== Measurements =====
+a. L1 reads:                                    9507
+b. L1 read misses:                              6740
+c. L1 writes:                                   2493
+d. L1 write misses:                             1817
+e. L1 miss rate:                                0.7131
+f. L1 writebacks:                               2071
+g. L1 prefetches:                               0
+h. L2 reads (demand):                           8557
+i. L2 read misses (demand):                     3945
+j. L2 reads (prefetch):                         0
+k. L2 read misses (prefetch):                   0
+l. L2 writes:                                   2071
+m. L2 write misses:                             0
+n. L2 miss rate:                                0.4610
+o. L2 writebacks:                               1486
+p. L2 prefetches:                               24135
+q. memory traffic:                              29566

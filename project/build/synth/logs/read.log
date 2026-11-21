@@ -1,0 +1,122 @@
+#------------------------------------------------------------
+#
+# Basic Synthesis Script (TCL format)
+#                                  
+# Revision History                
+#   1/15/03  : Author Shane T. Gehring - from class example
+#   2/09/07  : Author Zhengtao Yu      - from class example
+#   12/14/07 : Author Ravi Jenkal      - updated to 180 nm & tcl
+#
+#------------------------------------------------------------
+#---------------------------------------------------------
+# Read in Verilog file and map (synthesize) onto a generic
+# library.
+# MAKE SURE THAT YOU CORRECT ALL WARNINGS THAT APPEAR
+# during the execution of the read command are fixed 
+# or understood to have no impact.
+# ALSO CHECK your latch/flip-flop list for unintended 
+# latches                                            
+#---------------------------------------------------------
+#read_verilog -rtl $::env(RTL_FILES)
+#read_sverilog -rtl $::env(RTL_SV_FILES)
+if {[info exists ::env(RTL_SV_DEFINES)]} {
+  analyze -format sverilog -define [split $::env(RTL_SV_DEFINES)] $::env(RTL_SV_FILES)
+} else {
+  analyze -format sverilog $::env(RTL_SV_FILES)
+}
+Running PRESTO HDLC
+Compiling source file /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv
+Compiling source file /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/dut.sv
+Presto compilation completed successfully.
+Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/dw_foundation.sldb'
+elaborate $modname
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/gtech.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (dut)
+Module: dut, Ports: 500, Input: 47, Output: 453, Inout: 0
+Module: dut, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module dut report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'dut'.
+Information: Building the design 'cache_level' instantiated from design 'dut' with
+	the parameters "BLOCKSIZE=32,SIZE=1024,ASSOC=2,PREF_N=0,PREF_M=4,HAS_DN=1'h1". (HDL-193)
+
+Inferred memory devices in process in routine 'cache_level_32_1024_2_0_4_1' in file
+	 /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|    s1_valid_reg     | Flip-flop |   1   |  N  | N  | None  | Async | N  | 127  |
+|      s1_wr_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 133  |
+|     s1_tag_reg      | Flip-flop |  23   |  Y  | N  | None  | None  | N  | 133  |
+|      idx_q_reg      | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 133  |
+|      tmem_reg       | Flip-flop |  736  |  Y  | N  | None  | None  | N  | 203  |
+|      dmem_reg       | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 203  |
+|      vmem_reg       | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 217  |
+|      s1_ph_reg      | Flip-flop |   1   |  N  | N  | None  | Async | N  | 240  |
+|      st_wb_reg      | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_reads_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_rmiss_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_writes_reg    | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_wmiss_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+==================================================================================
+Statistics for MUX_OPs
+=====================================================================
+|        block name/line          | Inputs | Outputs | # sel inputs |
+=====================================================================
+| cache_level_32_1024_2_0_4_1/148 |   16   |   46    |      4       |
+| cache_level_32_1024_2_0_4_1/149 |   16   |    4    |      4       |
+=====================================================================
+Presto compilation completed successfully. (cache_level_32_1024_2_0_4_1)
+Module: cache_level_32_1024_2_0_4_1, Ports: 315, Input: 39, Output: 276, Inout: 0
+Module: cache_level_32_1024_2_0_4_1, Registers: 990, Async set/reset: 194, Sync set/reset: 0
+Information: Module cache_level_32_1024_2_0_4_1 report end. (ELAB-965)
+Information: Building the design 'cache_level' instantiated from design 'dut' with
+	the parameters "BLOCKSIZE=32,SIZE=8192,ASSOC=4,PREF_N=2,PREF_M=4,HAS_DN=1'h0". (HDL-193)
+
+Inferred memory devices in process in routine 'cache_level_32_8192_4_2_4_0' in file
+	 /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/rtl/cache_level.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|    s1_valid_reg     | Flip-flop |   1   |  N  | N  | None  | Async | N  | 127  |
+|      s1_wr_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 133  |
+|     s1_tag_reg      | Flip-flop |  21   |  Y  | N  | None  | None  | N  | 133  |
+|      idx_q_reg      | Flip-flop |   6   |  Y  | N  | None  | None  | N  | 133  |
+|      tmem_reg       | Flip-flop | 5376  |  Y  | N  | None  | None  | N  | 203  |
+|      dmem_reg       | Flip-flop |  256  |  Y  | N  | None  | None  | N  | 203  |
+|      vmem_reg       | Flip-flop |  256  |  Y  | N  | None  | Async | N  | 217  |
+|    g_sb.sb_v_reg    | Flip-flop |   2   |  Y  | N  | None  | Async | N  | 317  |
+|  g_sb.sb_base_reg   | Flip-flop |  54   |  Y  | N  | None  | None  | N  | 325  |
+|      st_wb_reg      | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_reads_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_rmiss_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_writes_reg    | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|    st_wmiss_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 354  |
+|     st_pref_reg     | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 372  |
+==================================================================================
+Statistics for MUX_OPs
+=====================================================================
+|        block name/line          | Inputs | Outputs | # sel inputs |
+=====================================================================
+| cache_level_32_8192_4_2_4_0/148 |   64   |   84    |      6       |
+| cache_level_32_8192_4_2_4_0/149 |   64   |    8    |      6       |
+| cache_level_32_8192_4_2_4_0/345 |   4    |    2    |      2       |
+| cache_level_32_8192_4_2_4_0/347 |   4    |   21    |      2       |
+=====================================================================
+Presto compilation completed successfully. (cache_level_32_8192_4_2_4_0)
+Module: cache_level_32_8192_4_2_4_0, Ports: 316, Input: 42, Output: 274, Inout: 0
+Module: cache_level_32_8192_4_2_4_0, Registers: 6165, Async set/reset: 451, Sync set/reset: 0
+Information: Module cache_level_32_8192_4_2_4_0 report end. (ELAB-965)
+if {[info exists ::env(SRAM_PATH)] && $::env(SRAM_PATH) ne ""} {
+  link
+  set sram_cells [get_cells -hierarchical -filter "ref_name =~ sram_*x32_1r*"]
+  if {[sizeof_collection $sram_cells] == 0} {
+    error "SRAM DUT has no linked SRAM macro instances"
+  }
+  set_dont_touch $sram_cells true
+}

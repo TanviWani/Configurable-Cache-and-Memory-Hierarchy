@@ -1,0 +1,9 @@
+{
+  "include_globs" : 
+  [
+    "srcs/rtl/**/*.v",
+    "srcs/rtl/**/*.sv",
+    "build/synth/reports/**/*.rpt",
+    "CMakePresets.json"
+  ]
+}

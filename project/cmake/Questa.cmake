@@ -1,0 +1,31 @@
+# Same Questa gate as the project template: the project must be built with the
+# Questa 2026.x selected by `source setup.sh` (module questa/2026.1).
+function(require_questa_2026)
+  execute_process(COMMAND "${VLOG}" -version OUTPUT_VARIABLE _version
+    ERROR_VARIABLE _version_error)
+  if(NOT "${_version}${_version_error}" MATCHES "vlog +2026\\.")
+    message(FATAL_ERROR "This project requires Questa 2026. Source setup.sh, then clear cached VLOG/VSIM/VLIB paths with -U VLOG -U VSIM -U VLIB.")
+  endif()
+endfunction()
+
+# Locate the Questa installation (for its modelsim.ini) from the selected vlog.
+function(configure_questa)
+  find_program(VLOG vlog REQUIRED)
+  require_questa_2026()
+  get_filename_component(_vlog_real "${VLOG}" REALPATH)
+  get_filename_component(_root "${_vlog_real}" DIRECTORY)
+  set(_found FALSE)
+  foreach(_level RANGE 0 4)
+    if(EXISTS "${_root}/modelsim.ini")
+      set(_found TRUE)
+      break()
+    endif()
+    get_filename_component(_root "${_root}" DIRECTORY)
+  endforeach()
+  if(NOT _found)
+    message(FATAL_ERROR "Cannot locate the Questa installation containing VLOG=${VLOG}")
+  endif()
+  set(QUESTA_ROOT "${_root}" PARENT_SCOPE)
+  message(STATUS "Questa vlog: ${VLOG}")
+  message(STATUS "Questa installation: ${_root}")
+endfunction()

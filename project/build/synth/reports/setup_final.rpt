@@ -1,0 +1,74 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : dut
+Version: Y-2026.03
+Date   : Sat Nov 21 01:21:21 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: g_l2.u_l2/idx_q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: g_l2.u_l2/g_sb.sb_base_reg[0][24]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  g_l2.u_l2/idx_q_reg[0]/CK (DFF_X2)                    0.0000 #   0.0000 r
+  g_l2.u_l2/idx_q_reg[0]/QN (DFF_X2)                    0.5613     0.5613 r
+  U17669/ZN (INV_X4)                                    0.0921     0.6534 f
+  g_l2.u_l2/add_288/A[0] (dut_DW01_inc_5)               0.0000     0.6534 f
+  g_l2.u_l2/add_288/U1_1_1/CO (HA_X1)                   0.2674     0.9208 f
+  g_l2.u_l2/add_288/U1_1_2/CO (HA_X1)                   0.2629     1.1837 f
+  g_l2.u_l2/add_288/U1_1_3/CO (HA_X1)                   0.2629     1.4466 f
+  g_l2.u_l2/add_288/U1_1_4/CO (HA_X1)                   0.2629     1.7095 f
+  g_l2.u_l2/add_288/U1_1_5/CO (HA_X1)                   0.2629     1.9724 f
+  g_l2.u_l2/add_288/U1_1_6/CO (HA_X1)                   0.2629     2.2353 f
+  g_l2.u_l2/add_288/U1_1_7/CO (HA_X1)                   0.2629     2.4981 f
+  g_l2.u_l2/add_288/U1_1_8/CO (HA_X1)                   0.2629     2.7610 f
+  g_l2.u_l2/add_288/U1_1_9/CO (HA_X1)                   0.2629     3.0239 f
+  g_l2.u_l2/add_288/U1_1_10/CO (HA_X1)                  0.2629     3.2868 f
+  g_l2.u_l2/add_288/U1_1_11/CO (HA_X1)                  0.2629     3.5497 f
+  g_l2.u_l2/add_288/U1_1_12/CO (HA_X1)                  0.2629     3.8126 f
+  g_l2.u_l2/add_288/U1_1_13/CO (HA_X1)                  0.2629     4.0755 f
+  g_l2.u_l2/add_288/U1_1_14/CO (HA_X1)                  0.2629     4.3384 f
+  g_l2.u_l2/add_288/U1_1_15/CO (HA_X1)                  0.2629     4.6013 f
+  g_l2.u_l2/add_288/U1_1_16/CO (HA_X1)                  0.2629     4.8642 f
+  g_l2.u_l2/add_288/U1_1_17/CO (HA_X1)                  0.2629     5.1271 f
+  g_l2.u_l2/add_288/U1_1_18/CO (HA_X1)                  0.2629     5.3900 f
+  g_l2.u_l2/add_288/U1_1_19/CO (HA_X1)                  0.2629     5.6529 f
+  g_l2.u_l2/add_288/U1_1_20/CO (HA_X1)                  0.2629     5.9158 f
+  g_l2.u_l2/add_288/U1_1_21/CO (HA_X1)                  0.2629     6.1787 f
+  g_l2.u_l2/add_288/U1_1_22/CO (HA_X1)                  0.2629     6.4415 f
+  g_l2.u_l2/add_288/U1_1_23/CO (HA_X1)                  0.2629     6.7044 f
+  g_l2.u_l2/add_288/U1_1_24/S (HA_X1)                   0.4146     7.1190 f
+  g_l2.u_l2/add_288/SUM[24] (dut_DW01_inc_5)            0.0000     7.1190 f
+  U17486/Z (MUX2_X2)                                    0.4863     7.6053 f
+  g_l2.u_l2/g_sb.sb_base_reg[0][24]/D (DFF_X2)          0.0000     7.6053 f
+  data arrival time                                                7.6053
+
+  clock clk (rise edge)                                 8.0000     8.0000
+  clock network delay (ideal)                           0.0000     8.0000
+  clock uncertainty                                    -0.0500     7.9500
+  g_l2.u_l2/g_sb.sb_base_reg[0][24]/CK (DFF_X2)         0.0000     7.9500 r
+  library setup time                                   -0.3298     7.6202
+  data required time                                               7.6202
+  --------------------------------------------------------------------------
+  data required time                                               7.6202
+  data arrival time                                               -7.6053
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0149
+
+
+1

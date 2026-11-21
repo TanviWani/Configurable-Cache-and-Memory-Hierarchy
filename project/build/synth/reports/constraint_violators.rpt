@@ -1,0 +1,122 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : dut
+Version: Y-2026.03
+Date   : Sat Nov 21 01:21:21 2026
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   n30272                     0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U17956/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U17772/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U17484/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U17444/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U16977/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U16823/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U16708/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U26688/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U26510/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U25976/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U25798/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U25620/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U25442/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U25264/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U24908/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U24551/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U24193/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U24014/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U23836/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U23658/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U23480/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U23302/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U23124/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U22946/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U21878/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U20454/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U19920/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U19742/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U19564/A1      0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U9355/A        0.9600         1.0042        -0.0442  (VIOLATED)
+       PIN :   U9400/ZN       0.9600         1.0042        -0.0442  (VIOLATED)
+   g_l2.u_l2/add_374_S2/n6    0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U297/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U293/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U290/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U285/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U281/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U382/A
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U341/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U340/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U339/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U338/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U337/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U336/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U335/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U334/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U333/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U332/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U331/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U330/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U329/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U328/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U324/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U304/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U302/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U300/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U296/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U292/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U289/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U284/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U280/A1
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+       PIN :   g_l2.u_l2/add_374_S2/U269/ZN
+                              0.9600         0.9832        -0.0232  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      2                -0.0673  
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   dut                        0.0000       61408.7617     -61408.7617
+                                                                    (VIOLATED)
+
+
+1

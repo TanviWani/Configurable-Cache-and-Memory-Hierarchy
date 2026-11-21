@@ -1,0 +1,72 @@
+===== Simulator configuration =====
+BLOCKSIZE:  32
+L1_SIZE:    768
+L1_ASSOC:   3
+L2_SIZE:    6144
+L2_ASSOC:   6
+PREF_N:     0
+PREF_M:     0
+trace_file: trace4.txt
+
+===== L1 contents =====
+set 0: 609986 609988 D 2104ac D
+set 1: 609987 2104ac 609986
+set 2: 609986 D 2104ac D 2104ab
+set 3: 2104ac 609986 2104ab
+set 4: 2104ac 609988 2104ab
+set 5: 2104ac 2104ab 609988
+set 6: 2104ac 609988 D 2104ab
+set 7: 2104ac 609986 D 609985
+
+===== L2 contents =====
+set 0: 182662 8412b 1498e3 D 693fb 7d2ac 806e2
+set 1: 8412b 182662 7d2ac D 693fb 806e2 87ad4
+set 2: 8412b 693fb D 182662 7d2ac 806e2 87ad4
+set 3: 8412b 693fb 7d2ac 806e2 87ad4 63d6c
+set 4: 8412b 182662 693fb 7d2ac 806e2 D 63d6c
+set 5: 8412b 182662 693fb 7d2ac 806e2 87ad4
+set 6: 8412b 182662 7d2ac D 806e2 87ad4 63d6c
+set 7: 8412b 7d2ac 806e2 87ad4 D 63d6c D 5a86c
+set 8: 1498e2 D 1498e3 D 7d2ac 806e2 87ad4 63d6c
+set 9: 7d2ac 806e2 87ad4 D 63d6c 5a86c 806e1 D
+set 10: 806e2 D 7d2ac 63d6c 87ad4 5a86c 806e1 D
+set 11: 806e2 63d6c 87ad4 5a86c 806e1 87ad3
+set 12: 806e2 63d6c D 87ad4 5a86c 806e1 D 87ad3
+set 13: 8412a 806e2 63d6c 87ad4 5a86c 806e1
+set 14: 8412a 63d6c 87ad4 5a86c 806e1 87ad3
+set 15: 182661 8412a 87ad4 63d6c 5a86c 806e1
+set 16: 182661 8412a 1498e3 D 1498e2 D 87ad4 D 63d6c
+set 17: 182661 87ad4 D 8412a 63d6c 5a86c 806e1
+set 18: 182661 87ad4 D 8412a 63d6c 5a86c 806e1
+set 19: 8412a 182661 5a86c D 806e1 D 693fa 87ad3
+set 20: 8412a D 182661 5a86c 806e1 D 693fa 87ad3
+set 21: 8412a 5a86c D 693fa D 806e1 87ad3 5a86b
+set 22: 8412a 5a86c 806e1 7d2ab 693fa 87ad3 D
+set 23: 182661 8412a 5a86c 7d2ab D 693fa D 806e1 D
+set 24: 8412a D 182661 1498e2 D 5a86c D 693fa D 7d2ab D
+set 25: 182661 8412a D 693fa D 806e1 7d2ab 87ad3
+set 26: 8412a 182661 693fa 806e1 7d2ab 87ad3
+set 27: 8412a 182661 693fa 806e1 7d2ab 87ad3
+set 28: 8412a 182661 7d2ab D 693fa 806e1 87ad3
+set 29: 8412a 693fa 7d2ab 806e1 87ad3 D 63d6b D
+set 30: 8412a 693fa D 7d2ab 806e1 87ad3 63d6b
+set 31: 182661 D 8412a 693fa 7d2ab 806e1 87ad3
+
+===== Measurements =====
+a. L1 reads:                                    7862
+b. L1 read misses:                              4469
+c. L1 writes:                                   4138
+d. L1 write misses:                             2332
+e. L1 miss rate:                                0.5667
+f. L1 writebacks:                               2798
+g. L1 prefetches:                               0
+h. L2 reads (demand):                           6801
+i. L2 read misses (demand):                     5340
+j. L2 reads (prefetch):                         0
+k. L2 read misses (prefetch):                   0
+l. L2 writes:                                   2798
+m. L2 write misses:                             0
+n. L2 miss rate:                                0.7852
+o. L2 writebacks:                               2135
+p. L2 prefetches:                               0
+q. memory traffic:                              7475

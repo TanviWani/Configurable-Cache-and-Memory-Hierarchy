@@ -1,0 +1,41 @@
+Reading pref.tcl
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+
+# 2026.1
+
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vsim-220) '/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/modelsim.ini' is used as the ini file.
+# vsim -c -64 -modelsimini /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/modelsim.ini -voptargs="+acc" /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/work.tb "+trace=/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/inputs/input2/trace.txt" "+out=/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/outputs/output2/sim.out" "+tracename=trace2.txt" -do "onbreak {quit -code 1}; onerror {quit -code 1}; run -all; quit -code 0" -GT_PREF_M=0 -GT_L1_ASSOC=16 -GT_PREF_N=0 -GT_L2_ASSOC=0 -GT_BLOCKSIZE=32 -GT_L1_SIZE=512 -GT_L2_SIZE=0 
+# Start time: 22:42:03 on Nov 19,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-220) '/mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/modelsim.ini' is used as the ini file.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# //  Questa Sim-64
+# //  Version 2026.1 linux_x86_64 Jan 25 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.tb(fast)
+# Loading work.dut(fast)
+# Loading work.cache_level(fast)
+# onbreak {quit -code 1}
+#  Warning: onbreak command for use within macro
+#  onerror {quit -code 1}
+#  Warning: onerror command for use within macro
+#  run -all
+# INFO[tb]: 12000 requests in 12003 cycles (1.000 cycles/request), report: /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/build/dut/outputs/output2/sim.out
+# ** Note: $finish    : /mnt/ncsudrive/t/tpwani2/Memory_Hierarchy_Personal/project/srcs/tb/tb.sv(273)
+#    Time: 120121 ns  Iteration: 0  Instance: /tb
+# End time: 22:42:08 on Nov 19,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 2
