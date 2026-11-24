@@ -55,6 +55,8 @@ The stream buffer is instantiated in the last-level cache:
 - In an L1+L2 configuration, prefetching is implemented in L2.
 - Prefetching can be disabled through the `PREF_N` parameter.
 
+![Block Diagram](images/block_diagram.png)
+
 ### Cache-Level Microarchitecture
 
 Each cache level uses a two-stage request pipeline:
